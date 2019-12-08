@@ -4,6 +4,10 @@ import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
 import kotlin.math.PI
+import kotlin.math.max
+import kotlin.math.min
+import kotlin.random.Random
+import kotlin.random.Random.Default.nextInt
 
 class Tests {
     @Test
@@ -49,6 +53,14 @@ class Tests {
         assertTrue(isPerfect(6))
         assertTrue(isPerfect(28))
         assertFalse(isPerfect(100))
+    }
+
+    @Test
+    @Tag("Example")
+    fun maxCommonDividerTest() {
+        assertEquals(maxCommonDivider(2, 3), 1)
+        assertEquals(maxCommonDivider(4, 6), 2)
+        assertEquals(maxCommonDivider(15, 30), 15)
     }
 
     @Test
@@ -137,6 +149,9 @@ class Tests {
         assertFalse(isCoPrime(6, 8))
         assertTrue(isCoPrime(17, 97))
         assertFalse(isCoPrime(37, 111))
+        assertFalse(isCoPrime(6, 9))
+        assertFalse(isCoPrime(15, 25))
+        assertTrue(isCoPrime(49, 82))
         assertTrue(isCoPrime(1234567890, 908765431))
         assertTrue(isCoPrime(2109876543, 1234567891))
     }
@@ -168,6 +183,7 @@ class Tests {
         assertEquals(7, collatzSteps(128))
         assertEquals(111, collatzSteps(1000))
         assertEquals(128, collatzSteps(100000))
+        assertEquals(111, collatzSteps(27))
     }
 
     @Test
@@ -211,7 +227,14 @@ class Tests {
         assertTrue(isPalindrome(3))
         assertFalse(isPalindrome(3653))
         assertTrue(isPalindrome(15751))
+        assertFalse(isPalindrome(15731))
+        assertFalse(isPalindrome(157351))
         assertTrue(isPalindrome(24688642))
+    }
+
+    @Test
+    fun digitAt() {
+        assertEquals(3, digitAt(3653, 0))
     }
 
     @Test

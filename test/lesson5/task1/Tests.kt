@@ -260,6 +260,9 @@ class Tests {
         assertFalse(hasAnagrams(emptyList()))
         assertTrue(hasAnagrams(listOf("рот", "свет", "тор")))
         assertFalse(hasAnagrams(listOf("рот", "свет", "код", "дверь")))
+        assertFalse(hasAnagrams(listOf("map", "list", "set", "array")))
+        assertTrue(hasAnagrams(listOf("otter", "cat", "reott", "poverty", "yveprot", "qwertyuiop", "poiuytrewq")))
+
     }
 
     @Test
@@ -308,6 +311,10 @@ class Tests {
         assertEquals(
             Pair(-1, -1),
             findSumOfTwo(listOf(1, 2, 3), 6)
+        )
+        assertEquals(
+            Pair(6, 9),
+            findSumOfTwo(listOf(1, 2, 3, 4, 10, 90, 100, 150, 50, 100), 200)
         )
     }
 
